@@ -1,0 +1,30 @@
+comando para arrumar identações e espaçamentos
+terraform fmt
+
+comando para baixar os modulos :
+terraform get
+
+terraform import - importa para o tfstate recursos que não estão no terraform
+terraform importe recurso-da-aws nome-recurso-que-sera-terraform
+OBS: deverá colocar manualmente no codigo esse recurso
+
+
+terraform graph - exporta um arquivo .dot onde é possivel gerar um grafo dos recursos, mas para gerar o grafico deve-se instalar o GraphViz
+
+terraform graph > arquivo.dot
+
+Remote State
+
+Criar um bucket na aws e nos demais recursos adicionar o parametro de backend apontando para esse bucket
+
+ex:
+terraform {
+  backend "s3" {
+    bucket = "techtrilha-aws-terraform-remote-state-dev"
+    key    = "s3/s3.tfstate"
+    region = "us-east-1"
+  }
+}
+
+Data source
+
